@@ -1,23 +1,43 @@
-import logo from './logo.svg';
 import './App.css';
+import api from './api/axiosConfig';
+import { useState, useEffect } from 'react';
+import Layout from './components/Layout';
+import { Routes, Route } from 'react-router-dom';
+import Home from './components/home/Home';
+import BQDoors from './components/bq_doors/BQDoors';
+import BQWindows from './components/bq_windows/BQWindows';
+import PoloDoors from './components/polo_doors/PoloDoors';
+import Inventory from './components/inventory/Inventory';
 
 function App() {
+
+  const [inventoryItems, setInventoryItems] = useState();
+
+  const getInventoryItems = async () => {
+    try {
+      const response = await api.get("/api/inventory");
+      console.log(response.data);
+      setInventoryItems(response.data);
+    } catch(err) {
+      console.log(err);
+    }
+  }
+
+  useEffect(() => {
+    getInventoryItems();
+  }, [])
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Routes>
+        <Route path="/" element={<Layout/>}>
+          <Route path="/" element={<Home/>}></Route>
+          <Route path="/bq-uksed" element={<BQDoors/>}></Route>
+          <Route path="/bq-aknad" element={<BQWindows/>}></Route>
+          <Route path="/polo-uksed" element={<PoloDoors/>}></Route>
+          <Route path="/ladu" element={<Inventory/>}></Route>
+        </Route>
+      </Routes>
     </div>
   );
 }

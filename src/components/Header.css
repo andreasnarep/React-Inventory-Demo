@@ -1,0 +1,58 @@
+/* Header styles */
+header {
+  background-color: #166390;
+  /* Dark blue */
+  color: white;
+}
+
+.header-content {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  text-align: center;
+}
+
+.logo {
+  height: 50px;
+  /* Adjust the height as needed */
+  cursor: pointer;
+  width: 125px;
+  /* Adjust the width as needed */
+  height: 80px;
+  /* Adjust the height as needed */
+  border-radius: 5%;
+  /* Makes the edges rounded */
+}
+
+.header-titles {
+  position: relative;
+  left: 17%;
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 20px;
+  display: flex;
+  /* Use flexbox */
+  justify-content: center;
+  /* Center the items horizontally */
+  text-align: center;
+}
+
+nav ul li {
+  margin-left: 20px;
+  cursor: pointer;
+  padding-inline: 20px;
+  font-family: 'Didot', serif;
+}
+
+li:hover {
+  background-color: #49c5b6;
+  /* Change to the desired highlight color */
+}
+
+.header-link {
+  color: white;
+  text-decoration: none;
+}

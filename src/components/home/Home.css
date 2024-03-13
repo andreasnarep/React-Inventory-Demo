@@ -1,0 +1,150 @@
+/* Body styles */
+body {
+  margin: 0;
+  font-family: 'Courier New', serif;
+}
+
+/* Main container styles */
+.main-container {
+  background: #49c5b6;
+  /* Green */
+  min-height: 100vh;
+
+}
+
+/* Content styles */
+.content {
+  padding: 20px;
+}
+
+.card-container {
+  display: flex;
+  flex-direction: column; /* Change flex-direction to column */
+}
+
+.card {
+  background-color: #166390;
+  color: white;
+  width: 400px;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  transition: transform 0.3s ease; /* Add transition for smooth effect */
+}
+
+.card:hover {
+  transform: scale(1.05); /* Scale up slightly on hover */
+}
+
+.card:last-child {
+  margin-bottom: 0;
+}
+
+.card-title {
+  font-family: 'Didot', serif;
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.card-content {
+  font-family: Arial, sans-serif;
+  /* You can change this font if you want */
+  font-size: 16px;
+  line-height: 1.6;
+}
+
+.months {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+.month {
+  font-family: Arial, sans-serif;
+  font-size: 14px;
+  cursor: pointer;
+  color: white;
+  background-color:#49c5b6;
+  border: none;
+}
+
+.month:hover {
+  background-color: #166390;
+  /* Change the highlight color of the selected month */
+}
+
+.month:active {
+  background-color: #166390;
+}
+
+
+.dropbtn {
+  background-color:#166390;
+  color: white;
+  padding: 10px 20px;
+  font-size: 16px;
+  font-family: 'Didot', serif;
+  border: none;
+  cursor: pointer;
+}
+
+select::-ms-expand {
+  display: none;
+}
+
+select {
+  /* Reset Select */
+  appearance: none;
+  outline: 10px red;
+  border: 0;
+  box-shadow: none;
+  /* Personalize */
+  flex: 1;
+  padding: 0 1em;
+  color: #fff;
+  background-color: var(--darkgray);
+  background-image: none;
+  cursor: pointer;
+}
+
+/* Custom Select wrapper */
+.dropdown {
+  background-color: #166390;
+  position:fixed;
+  left: 500px;
+  display: flex;
+  bottom: 5px;
+  width: 20em;
+  height: 3em;
+  border-radius: .25em;
+  overflow: hidden;
+  transition: transform 0.3s ease; /* Add transition for smooth effect */
+}
+
+/* Arrow */
+.dropdown::after {
+  content: '\25BC';
+  position: absolute;
+  top: -2.5px;
+  right: 0;
+  padding: 1em;
+  background-color: #166390;
+  transition: .25s all ease;
+  pointer-events: none;
+}
+
+.dropdown:hover::after {
+  color: #49c5b6;
+}
+
+.dropvalue {
+  color: white;
+  background-color: #166390;
+  padding: 10px 20px;
+  text-decoration: none;
+  display: block;
+  border: none;
+  cursor: pointer;
+}
+
