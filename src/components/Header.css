@@ -56,3 +56,12 @@ li:hover {
   color: white;
   text-decoration: none;
 }
+
+nav ul li.active {
+  background-color: #49c5b6; /* Change to the desired highlight color */
+}
+
+/* Add this class to represent the selected state */
+.active {
+  background-color: #49c5b6; /* Change to the desired highlight color */
+}

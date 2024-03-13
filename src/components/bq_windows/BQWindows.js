@@ -3,7 +3,7 @@ import Header from "../Header";
 
 const BQWindows = () => {
   return (
-    <div>
+    <div className="main-container">
       <Header></Header>
       <h4>BQWindows</h4>
     </div>

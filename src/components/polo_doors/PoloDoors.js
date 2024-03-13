@@ -3,7 +3,7 @@ import Header from "../Header";
 
 const PoloDoors = () => {
   return (
-    <div>
+    <div className="main-container">
       <Header></Header>
       <h4>Polo Doors</h4>
     </div>

@@ -1,0 +1,66 @@
+/* Main container styles */
+.main-container {
+  background: #49c5b6;
+  min-height: 100vh;
+}
+
+.content {
+  padding: 20px;
+  display: flex;
+}
+
+.form {
+  max-width: 300px;
+  position: relative;
+  margin: 0 auto;
+  background-color: white;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Optional: add a shadow effect */
+}
+
+.form-group {
+  margin-bottom: 20px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-family: 'Didot', serif;
+  font-size: 20px;
+}
+
+select,
+input[type='number'],
+input[type='month'] {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.door-type-select {
+  color: black;
+}
+
+.month-select {
+  color: black;
+}
+
+.form-content {
+  top: 100px;
+  left: 100px;
+  padding: 100px;
+  padding-left: 400px;
+}
+
+.bq-doors-table-content {
+  background-color: white;
+  position: relative;
+  max-width: 400px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  font-family: 'Didot', serif;
+}
