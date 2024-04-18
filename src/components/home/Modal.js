@@ -13,17 +13,17 @@ const Modal = ({ isOpen, onClose, children, title, data }) => {
               <table>
                 <thead>
                   <tr>
-                    <th>ID</th>
-                    <th>Name</th>
-                    <th>Age</th>
+                    <th className="home-modal-th">Nimi</th>
+                    <th className="home-modal-th">Kogus</th>
+                    <th className="home-modal-th">Kuu</th>
                   </tr>
                 </thead>
                 <tbody>
                   {data && Array.isArray(data) && data.map(item => (
                     <tr key={item.id}>
-                      <td>{item.id}</td>
-                      <td>{item.name}</td>
-                      <td>{item.age}</td>
+                      <td className="home-modal-td">{item.name}</td>
+                      <td className="home-modal-td">{item.quantity}</td>
+                      <td className="home-modal-td">{item.month}</td>
                     </tr>
                   ))}
                 </tbody>

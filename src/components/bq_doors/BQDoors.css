@@ -1,26 +1,30 @@
 /* Main container styles */
-.main-container {
-  background: #49c5b6;
+@import url('../colors.css');
+
+.bq-doors-main-container {
+  background: var(--body-color);
   min-height: 100vh;
 }
 
-.content {
+.bq-doors-content {
   padding: 20px;
   display: flex;
 }
 
-.form {
+.bq-doors-form {
   max-width: 300px;
+  min-width: 270px;
   position: relative;
   margin: 0 auto;
-  background-color: white;
+  background-color: var(--gray-color);
   border-radius: 10px;
   padding: 20px;
+  padding-bottom: 10px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Optional: add a shadow effect */
 }
 
-.form-group {
-  margin-bottom: 20px;
+.bq-doors-form-group {
+  margin-bottom: 12px;
 }
 
 label {
@@ -30,25 +34,27 @@ label {
   font-size: 20px;
 }
 
-select,
-input[type='number'],
-input[type='month'] {
+.bq-doors-confirm-button,
+.bq-doors-type-select,
+.bq-doors-quantity-input,
+.bq-doors-month-select {
   width: 100%;
   padding: 8px;
-  border: 1px solid #ccc;
+  border: 2px solid #ccc;
+  background-color: white !important;
   border-radius: 4px;
   box-sizing: border-box;
 }
 
-.door-type-select {
+.bq-doors-type-select {
   color: black;
 }
 
-.month-select {
+.bq-doors-month-select {
   color: black;
 }
 
-.form-content {
+.bq-doors-form-content {
   top: 100px;
   left: 100px;
   padding: 100px;
@@ -56,11 +62,90 @@ input[type='month'] {
 }
 
 .bq-doors-table-content {
-  background-color: white;
+  background-color: var(--gray-color);
   position: relative;
-  max-width: 400px;
+  max-width: 500px;
+  min-width: 350px;
   padding: 20px;
   border-radius: 10px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
   font-family: 'Didot', serif;
+  min-height: 500px;
+}
+
+.bq-doors-table-content table {
+  width: 100%;
+  border-collapse: collapse;
+  min-height: 390px;
+}
+
+.bq-doors-table-tr {
+  max-height: 10px;
+}
+
+.bq-doors-table-content th,
+.bq-doors-table-content td {
+  padding: 10px;
+  border: 1px solid black;
+}
+
+.bq-doors-table-content th {
+  background-color: #ccc; /* Set background color for labels */
+}
+
+/* Apply background color to odd rows starting from the second row */
+.bq-doors-table-content tr:nth-child(even) {
+  background-color: #ccc;
+}
+
+/* Additional styling for data cells */
+.bq-doors-table-content td {
+  padding: 10px;
+  border: 1px solid black;
+}
+
+.bq-doors-confirm-button:hover,
+.bq-doors-type-select:hover,
+.bq-doors-month-select:hover,
+.bq-doors-table-confirm-button:hover,
+.bq-doors-table-rollback-button:hover {
+  transform: scale(1.04);
+}
+
+.bq-doors-confirm-button,
+.bq-doors-type-select,
+.bq-doors-month-select,
+.bq-doors-table-confirm-button,
+.bq-doors-table-rollback-button {
+  transition: transform 0.25s ease; /* Add transition for smooth effect */
+}
+
+.bq-doors-table-confirm-button,
+.bq-doors-table-rollback-button {
+  width: 100%;
+  padding: 8px;
+  border: 2px solid rgba(0, 0, 0, 0.457);
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.bq-doors-table-confirm-button {
+  background-color: rgba(43, 255, 0, 0.637);
+}
+
+.bq-doors-table-rollback-button {
+  background-color: rgba(255, 0, 0, 0.7); /* Red color with 50% opacity */
+}
+
+.bq-doors-confirm-button {
+  margin-top: 10px;
+}
+
+.bq-doors-table-buttons-container {
+  display: flex;
+  margin-top: 15px;
+}
+
+.bq-doors-table-buttons-container button {
+  margin: 0 5px;
 }

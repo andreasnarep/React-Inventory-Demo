@@ -8,6 +8,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 10px;
 }
 
 .modal-content {
@@ -17,10 +18,27 @@
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.5); /* Add a stronger box shadow */
   border: 2px solid #166390; /* Add a border to highlight the modal */
   font-family: 'Didot', serif;
+  overflow-y: auto; /* Enable vertical scrolling for overflow content */
+  max-height: 500px; /* Set the maximum height of the container */
+}
+
+/* Style the scrollbar for Chrome, Safari, and Opera */
+.modal-content::-webkit-scrollbar {
+  width: 12px;
+}
+
+.modal-content::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.modal-content::-webkit-scrollbar-thumb {
+  background-color: rgba(0, 0, 0, 0.75);
+  border-radius: 10px;
+  border: 2px solid white; /* Add a border to the scrollbar thumb */
 }
 
 .modal-container {
-  background-color: rgba(255, 255, 255, 0.9);
+  background-color: rgba(255, 255, 255, 0.97);
   border-radius: 8px;
   height: auto;
   width: 500px;
@@ -48,4 +66,12 @@
 
 .table-title {
   font-weight: 500;
+}
+
+.home-modal-td {
+  font-size: 20px;
+}
+
+.home-modal-th {
+  font-size: 20px;
 }

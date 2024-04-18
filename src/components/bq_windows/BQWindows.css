@@ -1,7 +1,150 @@
-/* Main container styles */
-.main-container {
-  background: #49c5b6;
-  /* Green */
-  min-height: 100vh;
+@import url('../colors.css');
 
+.bq-windows-main-container {
+  background: var(--body-color);
+  min-height: 100vh;
+}
+
+.bq-windows-content {
+  padding: 20px;
+  display: flex;
+}
+
+.form {
+  max-width: 300px;
+  min-width: 270px;
+  position: relative;
+  margin: 0 auto;
+  background-color: var(--gray-color);
+  border-radius: 10px;
+  padding: 20px;
+  padding-bottom: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Optional: add a shadow effect */
+}
+
+.form-group {
+  margin-bottom: 12px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-family: 'Didot', serif;
+  font-size: 20px;
+}
+
+.bq-windows-confirm-button,
+.bq-windows-type-select,
+.bq-windows-quantity-input,
+.bq-windows-month-select {
+  width: 100%;
+  padding: 8px;
+  border: 2px solid #ccc;
+  background-color: white !important;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.bq-windows-type-select {
+  color: black;
+}
+
+.bq-windows-month-select {
+  color: black;
+}
+
+.form-content {
+  top: 100px;
+  left: 100px;
+  padding: 100px;
+  padding-left: 400px;
+}
+
+.bq-windows-table-content {
+  background-color: var(--gray-color);
+  position: relative;
+  max-width: 500px;
+  min-width: 350px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  font-family: 'Didot', serif;
+  min-height: 500px;
+}
+
+.bq-windows-table-content table {
+  width: 100%;
+  border-collapse: collapse;
+  min-height: 390px;
+}
+
+.bq-windows-table-tr {
+  max-height: 10px;
+}
+
+.bq-windows-table-content th,
+.bq-windows-table-content td {
+  padding: 10px;
+  border: 1px solid black;
+}
+
+.bq-windows-table-content th {
+  background-color: #ccc; /* Set background color for labels */
+}
+
+/* Apply background color to odd rows starting from the second row */
+.bq-windows-table-content tr:nth-child(even) {
+  background-color: #ccc;
+}
+
+/* Additional styling for data cells */
+.bq-windows-table-content td {
+  padding: 10px;
+  border: 1px solid black;
+}
+
+.bq-windows-confirm-button:hover,
+.bq-windows-type-select:hover,
+.bq-windows-month-select:hover,
+.bq-windows-table-confirm-button:hover,
+.bq-windows-table-rollback-button:hover {
+  transform: scale(1.04);
+}
+
+.bq-windows-confirm-button,
+.bq-windows-type-select,
+.bq-windows-month-select,
+.bq-windows-table-confirm-button,
+.bq-windows-table-rollback-button {
+  transition: transform 0.25s ease; /* Add transition for smooth effect */
+}
+
+.bq-windows-table-confirm-button,
+.bq-windows-table-rollback-button {
+  width: 100%;
+  padding: 8px;
+  border: 2px solid rgba(0, 0, 0, 0.457);
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.bq-windows-table-confirm-button {
+  background-color: rgba(43, 255, 0, 0.637);
+}
+
+.bq-windows-table-rollback-button {
+  background-color: rgba(255, 0, 0, 0.7); /* Red color with 50% opacity */
+}
+
+.bq-windows-confirm-button {
+  margin-top: 10px;
+}
+
+.bq-windows-table-buttons-container {
+  display: flex;
+  margin-top: 15px;
+}
+
+.bq-windows-table-buttons-container button {
+  margin: 0 5px;
 }

@@ -11,32 +11,33 @@ import Inventory from './components/inventory/Inventory';
 
 function App() {
 
-  const [inventoryItems, setInventoryItems] = useState();
+  //const [inventoryItems, setInventoryItems] = useState();
 
-  const getInventoryItems = async () => {
-    try {
-      const response = await api.get("/api/inventory");
-      console.log(response.data);
-      setInventoryItems(response.data);
-    } catch(err) {
-      console.log(err);
-    }
-  }
+  //const getInventoryItems = async () => {
+  //  try {
+  //    const response = await api.get("/api/inventory");
+  //    console.log(response.data);
+  //    setInventoryItems(response.data);
+  //  } catch (err) {
+  //    console.log(err);
+  //  }
+  //}
 
-  useEffect(() => {
-    getInventoryItems();
-  }, [])
+  //useEffect(() => {
+  //  getInventoryItems();
+  //}, [])
+
+  //const [loggedIn, setLoggedIn] = useState(false)
+  //const [email, setEmail] = useState('')
 
   return (
     <div className="App">
       <Routes>
-        <Route path="/" element={<Layout/>}>
-          <Route path="/" element={<Home/>}></Route>
-          <Route path="/bq-uksed" element={<BQDoors/>}></Route>
-          <Route path="/bq-aknad" element={<BQWindows/>}></Route>
-          <Route path="/polo-uksed" element={<PoloDoors/>}></Route>
-          <Route path="/ladu" element={<Inventory/>}></Route>
-        </Route>
+        <Route path="/" element={<Home />} />
+        <Route path="/bq-uksed" element={<BQDoors />}></Route>
+        <Route path="/bq-aknad" element={<BQWindows />}></Route>
+        <Route path="/polo-uksed" element={<PoloDoors />}></Route>
+        <Route path="/ladu" element={<Inventory />}></Route>
       </Routes>
     </div>
   );

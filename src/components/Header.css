@@ -1,6 +1,8 @@
 /* Header styles */
+@import url('./colors.css');
+
 header {
-  background-color: #166390;
+  background-color: var(--header-color);
   /* Dark blue */
   color: white;
 }
@@ -29,6 +31,10 @@ header {
   left: 17%;
 }
 
+.menu-icon {
+  display: none; /* Hide menu icon by default */
+}
+
 nav ul {
   list-style-type: none;
   padding: 0;
@@ -48,7 +54,8 @@ nav ul li {
 }
 
 li:hover {
-  background-color: #49c5b6;
+  background-color: var(--body-color);
+  transform: scale(1.05);
   /* Change to the desired highlight color */
 }
 
@@ -58,10 +65,72 @@ li:hover {
 }
 
 nav ul li.active {
-  background-color: #49c5b6; /* Change to the desired highlight color */
+  background-color: var(--body-color); /* Change to the desired highlight color */
 }
 
-/* Add this class to represent the selected state */
-.active {
-  background-color: #49c5b6; /* Change to the desired highlight color */
+/* Media Query for Mobile Devices */
+@media screen and (max-width: 600px) {
+  .header-titles ul {
+    display: none; /* Hide the links */
+    flex-direction: column;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    background-color: var(--header-color);
+    z-index: 1;
+    padding: 0; /* Remove default padding */
+    border-radius: 0.5rem; /* Add some rounded corners for better appearance */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a shadow for depth */
+  }
+
+  
+  
+  .header-titlesshow-menu ul {
+    flex-direction: column;
+    position: absolute;
+    top: 9%;
+    left: 0;
+    width: 100%;
+    background-color: var(--header-color);
+    z-index: 1;
+    padding: 0; /* Remove default padding */
+    border-radius: 0.5rem; /* Add some rounded corners for better appearance */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a shadow for depth */
+  }
+
+  .header-titles ul li {
+    margin: 0; /* Remove margin */
+    padding: 10px; /* Add padding for better touch response */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Add a border between links */
+  }
+
+  .menu-icon {
+    display: block; /* Show the menu icon */
+    cursor: pointer;
+  }
+
+  .header-titles ul li:last-child {
+    border-bottom: none; /* Remove border on last link */
+  }
+
+  .bar {
+    width: 25px;
+    height: 3px;
+    background-color: white;
+    margin: 5px 0;
+    transition: transform 0.4s, opacity 0.4s; /* Adjusted transition properties */
+  }
+
+  .menu-icon.active .bar:nth-child(1) {
+    transform: rotate(-45deg) translate(-5px, 6px);
+  }
+
+  .menu-icon.active .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .menu-icon.active .bar:nth-child(3) {
+    transform: rotate(45deg) translate(-5px, -6px);
+  }
 }

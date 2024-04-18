@@ -1,7 +1,151 @@
 /* Main container styles */
-.main-container {
-  background: #49c5b6;
-  /* Green */
-  min-height: 100vh;
+@import url('../colors.css');
 
+.polo-doors-main-container {
+  background: var(--body-color);
+  min-height: 100vh;
+}
+
+.polo-doors-content {
+  padding: 20px;
+  display: flex;
+}
+
+.polo-doors-form {
+  max-width: 300px;
+  min-width: 270px;
+  position: relative;
+  margin: 0 auto;
+  background-color: var(--gray-color);
+  border-radius: 10px;
+  padding: 20px;
+  padding-bottom: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Optional: add a shadow effect */
+}
+
+.polo-doors-form-group {
+  margin-bottom: 12px;
+}
+
+label {
+  display: block;
+  margin-bottom: 5px;
+  font-family: 'Didot', serif;
+  font-size: 20px;
+}
+
+.polo-doors-confirm-button,
+.polo-doors-type-select,
+.polo-doors-quantity-input,
+.polo-doors-month-select {
+  width: 100%;
+  padding: 8px;
+  border: 2px solid #ccc;
+  background-color: white !important;
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.polo-doors-type-select {
+  color: black;
+}
+
+.month-select {
+  color: black;
+}
+
+.polo-doors-form-content {
+  top: 100px;
+  left: 100px;
+  padding: 100px;
+  padding-left: 400px;
+}
+
+.polo-doors-table-content {
+  background-color: var(--gray-color);
+  position: relative;
+  max-width: 500px;
+  min-width: 350px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  font-family: 'Didot', serif;
+  min-height: 500px;
+}
+
+.polo-doors-table-content table {
+  width: 100%;
+  border-collapse: collapse;
+  min-height: 390px;
+}
+
+.polo-doors-table-tr {
+  max-height: 10px;
+}
+
+.polo-doors-table-content th,
+.polo-doors-table-content td {
+  padding: 10px;
+  border: 1px solid black;
+}
+
+.polo-doors-table-content th {
+  background-color: #ccc; /* Set background color for labels */
+}
+
+/* Apply background color to odd rows starting from the second row */
+.polo-doors-table-content tr:nth-child(even) {
+  background-color: #ccc;
+}
+
+/* Additional styling for data cells */
+.polo-doors-table-content td {
+  padding: 10px;
+  border: 1px solid black;
+}
+
+.polo-doors-confirm-button:hover,
+.polo-doors-type-select:hover,
+.polo-doors-month-select:hover,
+.polo-doors-table-confirm-button:hover,
+.polo-doors-table-rollback-button:hover {
+  transform: scale(1.04);
+}
+
+.polo-doors-confirm-button,
+.polo-doors-type-select,
+.polo-doors-month-select,
+.polo-doors-table-confirm-button,
+.polo-doors-table-rollback-button {
+  transition: transform 0.25s ease; /* Add transition for smooth effect */
+}
+
+.polo-doors-table-confirm-button,
+.polo-doors-table-rollback-button {
+  width: 100%;
+  padding: 8px;
+  border: 2px solid rgba(0, 0, 0, 0.457);
+  border-radius: 4px;
+  box-sizing: border-box;
+}
+
+.polo-doors-table-confirm-button {
+  background-color: rgba(43, 255, 0, 0.637);
+}
+
+.polo-doors-table-rollback-button {
+  background-color: rgba(255, 0, 0, 0.7); /* Red color with 50% opacity */
+}
+
+.polo-doors-confirm-button {
+  margin-top: 10px;
+}
+
+.polo-doors-table-buttons-container {
+  display: flex;
+  margin-top: 15px;
+}
+
+.polo-doors-table-buttons-container button {
+  margin: 0 5px;
 }

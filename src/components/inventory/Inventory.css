@@ -1,7 +1,75 @@
+@import url('../colors.css');
+
 /* Main container styles */
-.main-container {
-  background: #49c5b6;
+.inventory-main-container {
+  background: var(--body-color);
   /* Green */
   min-height: 100vh;
+}
 
+.inventory-content {
+  padding: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.inventory-table-content {
+  background-color: var(--gray-color);
+  position: relative;
+  max-width: 500px;
+  min-width: 350px;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  font-family: 'Didot', serif;
+  min-height: 500px;
+}
+
+.inventory-table-content table {
+  width: 100%;
+  border-collapse: collapse;
+  min-height: 390px;
+}
+
+.inventory-table-tr {
+  max-height: 10px;
+  cursor: pointer;
+}
+
+.inventory-table-tr:not(:last-child):hover {
+  transform: scale(1.05);
+}
+
+.inventory-table-content th,
+.inventory-table-content td {
+  padding: 10px;
+  border: 1px solid black;
+}
+
+.inventory-table-content th {
+  background-color: #ccc;
+  /* Set background color for labels */
+}
+
+/* Apply background color to odd rows starting from the second row */
+.inventory-table-content tr:nth-child(even) {
+  background-color: #ccc;
+}
+
+/* Additional styling for data cells */
+.inventory-table-content td {
+  padding: 10px;
+  border: 1px solid black;
+}
+
+.inventory-table-red-row {
+  background-color: #ff00009a !important; /* Change this to your desired red color */
+}
+
+.inventory-table-test {
+  max-height: 440px; /* Set the maximum height of the container */
+  overflow-y: auto; /* Enable vertical scrolling for overflow content */
+  overflow-x: hidden; /* Hide horizontal overflow */
+  position: relative; /* Ensure proper positioning for the header table */
 }
