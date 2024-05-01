@@ -1,70 +1,65 @@
-# Getting Started with Create React App
+# React Inventory Application Demo
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## [Firebase Website Link](https://inventory-demo-narep.web.app/)
 
-## Available Scripts
+## Project Overview
 
-In the project directory, you can run:
+React web application with a REST backend Java API (github repo [link](https://github.com/andreasnarep/Inventory-API-Demo) for API). MongoDB is used for database. The React application is deployed in Firebase and the Java API in Google Cloud App Engine.
 
-### `npm start`
+## Website Overview
+  **Main Page**  - Overview of completed doors/windows for every month. 
+  
+  **BQ Doors**   - Insertion of completed bq doors.
+  
+  **BQ Windows** - Insertion of completed bq windows.
+  
+  **Polo Doors** - Insertion of completed polo doors.
+  
+  **Inventory**  - Overview of inventory items. Quantity of each item can be edited by clicking on the item.
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+## Data
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+> [!NOTE]
+> If an item's quantity drops below its lower limit, then it is displayed with a red background in the inventory tab.
 
-### `npm test`
+**Inventory Items**
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+| **name (string)** | **quantity (int)** | **lowerLimit (int)** |
+| ----------------- | ------------------ | -------------------- |
+| 605x1537          | x                  | 5                    |
+| 605x1685          | x                  | 7                    |
+| asd               | x                  | 8                    |
+| 545x775           | x                  | 7                    |
+| bgd               | x                  | 10                   |
+| 495x775           | x                  | 7                    |
 
-### `npm run build`
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+> [!NOTE]
+> Materials Array in the following data tables show which material and how much of each corresponding material is used for creating one window/door.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+**BQ Doors**
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+| **name (string)** | **materials (object[])** |
+| ----------------- | ------------------------ |
+| 1690x1900 1/1     | ["605x1537" - 1, "asd" - 4, "bgd" - 8] |
+| 1599x2965 1/2     | ["605x1685" - 2, "bgd" - 1] |
 
-### `npm run eject`
+**BQ Windows**
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+| **name (string)** | **materials (object[])** |
+| ----------------- | ------------------------ |
+| 1390x1000     | ["605x1537" - 1, "asd" - 4, "bgd" - 8] |
+| 1290x1000     | ["605x1685" - 2, "bgd" - 1] |
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+**Polo Doors**
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+| **name (string)** | **materials (object[])** |
+| ----------------- | ------------------------ |
+| 1690x1900 1/1     | ["605x1537" - 2, "asd" - 1, "bgd" - 4] |
+| 1690x2050 1/1     | ["605x1685" - 2, "asd" - 4] |
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+**Completed BQ Doors** (same schema for completed polo doors and bq windows)
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+| **name (string)** | **date** | **quantity (int)** |
+| ----------------- | -------- | ------------ |
+| 1690x1900 1/1     | 2024-05-01T00:00:00.000+00:00 | x |
