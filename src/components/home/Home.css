@@ -15,29 +15,41 @@ body {
 /* Content styles */
 .content {
   padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* Center content horizontally */
+  justify-content: center;
+  /* Center content vertically */
 }
 
 .card-container {
   display: flex;
-  flex-direction: row; /* Change flex-direction to column */
+  flex-wrap: wrap;
+  /* Allow cards to wrap to the next row */
+  justify-content: center;
+  /* Center cards horizontally */
   margin-top: 10%;
-  margin-left: 8%;
 }
 
 .card {
   background-color: var(--gray-color) !important;
   width: 400px;
+  max-width: 90%;
+  /* Adjust the width for responsiveness */
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   margin-bottom: 20px;
   margin-left: 20px;
-  transition: transform 0.3s ease; /* Add transition for smooth effect */
+  transition: transform 0.3s ease;
+  /* Add transition for smooth effect */
 }
 
 .card:hover,
 .dropdown:hover {
-  transform: scale(1.05); /* Scale up slightly on hover */
+  transform: scale(1.05);
+  /* Scale up slightly on hover */
 }
 
 
@@ -85,15 +97,16 @@ select::-ms-expand {
 /* Custom Select wrapper */
 .dropdown {
   background-color: var(--gray-color);
-  position:fixed;
-  left: 40%;
+  position: fixed;
+
   display: flex;
   bottom: 5px;
   width: 20em;
   height: 3em;
   border-radius: .25em;
   overflow: hidden;
-  transition: transform 0.3s ease; /* Add transition for smooth effect */
+  transition: transform 0.3s ease;
+  /* Add transition for smooth effect */
 }
 
 /* Arrow */
@@ -126,22 +139,29 @@ select::-ms-expand {
   .dropdown {
     position: fixed;
     left: 0;
-    width: 97%;
+    width: 100%;
     margin-bottom: 13px;
   }
 
   .card {
-    width: 97%;
+    max-width: 100%;
   }
 
   .card-container {
     display: flex;
-    flex-direction: column; /* Change flex-direction to column */
+    flex-direction: column;
+    /* Change flex-direction to column */
     margin-top: 0;
     margin-left: 0;
   }
 
   .card {
     margin-left: 0;
+  }
+
+  .card:hover,
+  .dropdown:hover {
+    transform: scale(1);
+    /* Scale up slightly on hover */
   }
 }

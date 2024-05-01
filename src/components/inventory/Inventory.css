@@ -61,15 +61,41 @@
 .inventory-table-content td {
   padding: 10px;
   border: 1px solid black;
+
 }
 
 .inventory-table-red-row {
-  background-color: #ff00009a !important; /* Change this to your desired red color */
+  background-color: #ff00009a !important;
+  /* Change this to your desired red color */
 }
 
 .inventory-table-test {
-  max-height: 440px; /* Set the maximum height of the container */
-  overflow-y: auto; /* Enable vertical scrolling for overflow content */
-  overflow-x: hidden; /* Hide horizontal overflow */
-  position: relative; /* Ensure proper positioning for the header table */
+  max-height: 440px;
+  /* Set the maximum height of the container */
+  overflow-y: auto;
+  /* Enable vertical scrolling for overflow content */
+  overflow-x: hidden;
+  /* Hide horizontal overflow */
+  position: relative;
+  /* Ensure proper positioning for the header table */
+}
+
+.inventory-table-tr:not(:last-child):hover {
+  transform: scale(1.04);
+}
+
+@media screen and (max-width: 600px) {
+  .inventory-table-content td,
+  .inventory-table-content th {
+    font-size: 20px;
+    font-family: 'Times New Roman', serif;
+  }
+
+  .inventory-table-tr:not(:last-child):hover {
+    transform: scale(1);
+  }
+
+  .inventory-table-label {
+    font-size: 24px;
+  }
 }

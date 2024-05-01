@@ -2,6 +2,23 @@ import React from 'react';
 import './Modal.css';
 
 const Modal = ({ isOpen, onClose, children, title, data }) => {
+  // Create a copy of the data array to avoid mutation
+  const combinedData = [...data];
+
+  // Preprocess the data to combine entries with the same name
+  const processedData = combinedData.reduce((acc, currentItem) => {
+    // Check if there's already an item with the same name in the accumulator
+    const existingItem = acc.find(item => item.name === currentItem.name);
+
+    // If there's an existing item, update its quantity, otherwise add the current item to the accumulator
+    if (existingItem) {
+      existingItem.quantity += currentItem.quantity;
+    } else {
+      acc.push({ ...currentItem }); // Create a copy of the current item to avoid mutation
+    }
+    return acc;
+  }, []);
+
   return (
     <>
       {isOpen && (
@@ -19,7 +36,7 @@ const Modal = ({ isOpen, onClose, children, title, data }) => {
                   </tr>
                 </thead>
                 <tbody>
-                  {data && Array.isArray(data) && data.map(item => (
+                  {processedData.map(item => (
                     <tr key={item.id}>
                       <td className="home-modal-td">{item.name}</td>
                       <td className="home-modal-td">{item.quantity}</td>

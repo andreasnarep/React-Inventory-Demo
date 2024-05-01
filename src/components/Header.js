@@ -3,11 +3,13 @@ import "./Header.css"; // Import CSS file for styling
 import logo from "../images/logo.jpg"; // Import your logo image
 import { useState } from 'react';
 import { Link, useLocation } from "react-router-dom";
+import { signOut, getAuth } from "firebase/auth";
 
 const Header = ({ selectedItem }) => {
   const location = useLocation();
   const pathname = location.pathname.substring(1); // Remove the leading slash
   const [showMenu, setShowMenu] = useState(false);
+  const auth = getAuth();
 
   const toggleMenu = () => {
     setShowMenu(!showMenu);
@@ -16,11 +18,11 @@ const Header = ({ selectedItem }) => {
   return (
     <header>
       <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
       </head>
       <div className="header-content">
         <img src={logo} alt="Logo" className="logo" />
-        <nav className={`header-titles${showMenu ? 'show-menu' : ''}`}>
+        <nav className={`header-titles${showMenu ? '-show-menu' : ''}`}>
           <div className="menu-icon-container">
             <div className="menu-icon" onClick={toggleMenu}>
               <div className="bar"></div>
@@ -29,6 +31,8 @@ const Header = ({ selectedItem }) => {
             </div>
           </div>
           <ul>
+            {/* <button onClick={() => signOut(auth)}>Sign Out</button> */}
+
             <li className={pathname === '' ? 'active' : ''}>
               <Link className="header-link" to="/">PEALEHT</Link>
             </li>

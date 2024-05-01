@@ -8,6 +8,8 @@ import BQDoors from './components/bq_doors/BQDoors';
 import BQWindows from './components/bq_windows/BQWindows';
 import PoloDoors from './components/polo_doors/PoloDoors';
 import Inventory from './components/inventory/Inventory';
+import Login from './components/login/Login';
+import AuthWrapper from './Authwrapper';
 
 function App() {
 
@@ -33,11 +35,12 @@ function App() {
   return (
     <div className="App">
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/bq-uksed" element={<BQDoors />}></Route>
-        <Route path="/bq-aknad" element={<BQWindows />}></Route>
-        <Route path="/polo-uksed" element={<PoloDoors />}></Route>
-        <Route path="/ladu" element={<Inventory />}></Route>
+        <Route path="/login" element={<Login />} />
+        <Route path="/" element={<AuthWrapper><Home /></AuthWrapper>} />
+        <Route path="/bq-uksed" element={<AuthWrapper><BQDoors /></AuthWrapper>}></Route>
+        <Route path="/bq-aknad" element={<AuthWrapper><BQWindows /></AuthWrapper>}></Route>
+        <Route path="/polo-uksed" element={<AuthWrapper><PoloDoors /></AuthWrapper>}></Route>
+        <Route path="/ladu" element={<AuthWrapper><Inventory /></AuthWrapper>}></Route>
       </Routes>
     </div>
   );

@@ -8,6 +8,10 @@
 .bq-windows-content {
   padding: 20px;
   display: flex;
+  align-items: center;
+  /* Center content horizontally */
+  justify-content: center;
+  /* Center content vertically */
 }
 
 .form {
@@ -19,7 +23,8 @@
   border-radius: 10px;
   padding: 20px;
   padding-bottom: 10px;
-  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1); /* Optional: add a shadow effect */
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  /* Optional: add a shadow effect */
 }
 
 .form-group {
@@ -43,6 +48,7 @@ label {
   background-color: white !important;
   border-radius: 4px;
   box-sizing: border-box;
+  height: 43px;
 }
 
 .bq-windows-type-select {
@@ -54,10 +60,7 @@ label {
 }
 
 .form-content {
-  top: 100px;
-  left: 100px;
-  padding: 100px;
-  padding-left: 400px;
+  padding: 70px;
 }
 
 .bq-windows-table-content {
@@ -89,7 +92,8 @@ label {
 }
 
 .bq-windows-table-content th {
-  background-color: #ccc; /* Set background color for labels */
+  background-color: #ccc;
+  /* Set background color for labels */
 }
 
 /* Apply background color to odd rows starting from the second row */
@@ -101,6 +105,8 @@ label {
 .bq-windows-table-content td {
   padding: 10px;
   border: 1px solid black;
+  font-size: 20px;
+  font-family: 'Times New Roman', serif;
 }
 
 .bq-windows-confirm-button:hover,
@@ -116,7 +122,9 @@ label {
 .bq-windows-month-select,
 .bq-windows-table-confirm-button,
 .bq-windows-table-rollback-button {
-  transition: transform 0.25s ease; /* Add transition for smooth effect */
+  transition: transform 0.25s ease;
+  /* Add transition for smooth effect */
+  color: black;
 }
 
 .bq-windows-table-confirm-button,
@@ -133,7 +141,8 @@ label {
 }
 
 .bq-windows-table-rollback-button {
-  background-color: rgba(255, 0, 0, 0.7); /* Red color with 50% opacity */
+  background-color: rgba(255, 0, 0, 0.7);
+  /* Red color with 50% opacity */
 }
 
 .bq-windows-confirm-button {
@@ -147,4 +156,33 @@ label {
 
 .bq-windows-table-buttons-container button {
   margin: 0 5px;
+}
+
+@media screen and (max-width: 600px) {
+  .form {
+    top: 10%;
+    position: relative;
+    margin-bottom: 10px;
+  }
+
+  .form-content {
+    padding-left: 0;
+    padding: 5px;
+  }
+
+  .bq-windows-content {
+    display: flex;
+    flex-direction: column;
+    /* Change flex-direction to column */
+    margin-top: 0;
+    margin-left: 0;
+  }
+
+  .bq-windows-confirm-button:hover,
+  .bq-windows-type-select:hover,
+  .bq-windows-month-select:hover,
+  .bq-windows-table-confirm-button:hover,
+  .bq-windows-table-rollback-button:hover {
+    transform: scale(1);
+  }
 }

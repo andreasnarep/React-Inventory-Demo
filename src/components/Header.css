@@ -11,12 +11,11 @@ header {
   display: flex;
   align-items: center;
   padding: 20px;
-  text-align: center;
+  justify-content: center;
+  /* Distribute items evenly */
 }
 
 .logo {
-  height: 50px;
-  /* Adjust the height as needed */
   cursor: pointer;
   width: 125px;
   /* Adjust the width as needed */
@@ -24,26 +23,28 @@ header {
   /* Adjust the height as needed */
   border-radius: 5%;
   /* Makes the edges rounded */
+  margin-right: auto;
 }
 
-.header-titles {
-  position: relative;
-  left: 17%;
+nav {
+  margin-right: auto;
+  /* Pushes the navigation links to the right */
 }
 
 .menu-icon {
-  display: none; /* Hide menu icon by default */
+  display: none;
+  /* Hide menu icon by default */
 }
 
 nav ul {
   list-style-type: none;
   padding: 0;
-  margin: 20px;
+  margin: 0;
   display: flex;
   /* Use flexbox */
   justify-content: center;
-  /* Center the items horizontally */
-  text-align: center;
+  align-items: center;
+  /* Center items vertically */
 }
 
 nav ul li {
@@ -65,61 +66,82 @@ li:hover {
 }
 
 nav ul li.active {
-  background-color: var(--body-color); /* Change to the desired highlight color */
+  background-color: var(--body-color);
+  /* Change to the desired highlight color */
 }
 
 /* Media Query for Mobile Devices */
 @media screen and (max-width: 600px) {
   .header-titles ul {
-    display: none; /* Hide the links */
+    display: none;
+    /* Hide the links */
     flex-direction: column;
     position: absolute;
     top: 100%;
     left: 0;
+    margin-right: 10px;
     width: 100%;
     background-color: var(--header-color);
     z-index: 1;
-    padding: 0; /* Remove default padding */
-    border-radius: 0.5rem; /* Add some rounded corners for better appearance */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a shadow for depth */
+    padding: 0;
+    /* Remove default padding */
+    border-radius: 0.5rem;
+    /* Add some rounded corners for better appearance */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Add a shadow for depth */
   }
 
-  
-  
-  .header-titlesshow-menu ul {
+  nav {
+    margin-right: -1%;
+    /* Pushes the navigation links to the right */
+  }
+
+  nav ul {
     flex-direction: column;
-    position: absolute;
-    top: 9%;
-    left: 0;
-    width: 100%;
-    background-color: var(--header-color);
+    display: flex;
+    position:fixed;
+    margin-inline-start: -50%;
+    align-items: center;
+    /* Center content horizontally */
+    justify-content: center;
+    /* Center content vertically */
+    top: auto;
+    width: 61%;
+    background-color: #8e7049;
     z-index: 1;
-    padding: 0; /* Remove default padding */
-    border-radius: 0.5rem; /* Add some rounded corners for better appearance */
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a shadow for depth */
+    /* Remove default padding */
+    border-radius: 0.5rem;
+    /* Add some rounded corners for better appearance */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    /* Add a shadow for depth */
   }
 
-  .header-titles ul li {
-    margin: 0; /* Remove margin */
-    padding: 10px; /* Add padding for better touch response */
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1); /* Add a border between links */
+  
+
+  .header-titles-show-menu ul li {
+    margin: 0;
+    /* Remove margin */
+    padding: 10px;
+    /* Add padding for better touch response */
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    /* Add a border between links */
   }
 
   .menu-icon {
-    display: block; /* Show the menu icon */
+    display: block;
+    /* Show the menu icon */
     cursor: pointer;
   }
 
-  .header-titles ul li:last-child {
-    border-bottom: none; /* Remove border on last link */
-  }
+  
 
   .bar {
     width: 25px;
     height: 3px;
     background-color: white;
     margin: 5px 0;
-    transition: transform 0.4s, opacity 0.4s; /* Adjusted transition properties */
+    transition: transform 0.4s, opacity 0.4s;
+    /* Adjusted transition properties */
   }
 
   .menu-icon.active .bar:nth-child(1) {
@@ -132,5 +154,9 @@ nav ul li.active {
 
   .menu-icon.active .bar:nth-child(3) {
     transform: rotate(45deg) translate(-5px, -6px);
+  }
+
+  nav ul li.active {
+    width: 100%;
   }
 }

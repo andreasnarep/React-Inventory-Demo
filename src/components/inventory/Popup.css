@@ -61,6 +61,7 @@
   background-color: rgba(43, 255, 0, 0.637);
   margin-top: 10px;
   height: 40px;
+  color: black;
 }
 
 .inventory-popup-confirm-button:hover {
@@ -76,4 +77,16 @@
 
 .inventory-popup-quantity-change-group {
   margin-bottom: 7px;
+}
+
+@media screen and (max-width: 600px) {
+  .inventory-popup-confirm-button:hover {
+    transform: scale(1);
+  }
+
+  .inventory-popup-text,
+  label {
+    font-size: 20px;
+    font-family: 'Times New Roman', serif;
+  }
 }
