@@ -18,12 +18,6 @@ const Home = () => {
   const [completedBQDoorsQuantity, setCompletedBQDoorsQuantity] = useState(0);
   const [completedPoloDoorsQuantity, setCompletedPoloDoorsQuantity] = useState(0);
 
-  const completedItems = {
-    bqUksed: 15,
-    bqAknad: 10,
-    poloUksed: 5
-  };
-
   useEffect(() => {
     getBQDoors(currentMonth);
     getBQWindows(currentMonth);
@@ -76,11 +70,6 @@ const Home = () => {
     try {
       const response = await api.get("/api/main-page/bq-doors/" + month);
       const bqDoorData = response.data;
-      console.log(response);
-      //setDoorNames(names);
-      //setDoorType(names[0]);
-      console.log(bqDoorData);
-      //setInventoryItems(response.data);
       setCompletedBQDoors(bqDoorData);
       findBQDoorsQuantity(bqDoorData);
     } catch (err) {
@@ -92,11 +81,6 @@ const Home = () => {
     try {
       const response = await api.get("/api/main-page/polo-doors/" + month);
       const poloDoorData = response.data;
-      console.log(response);
-      //setDoorNames(names);
-      //setDoorType(names[0]);
-      console.log(poloDoorData);
-      //setInventoryItems(response.data);
       setCompletedPoloDoors(poloDoorData);
       findPoloDoorsQuantity(poloDoorData);
     } catch (err) {
@@ -108,11 +92,6 @@ const Home = () => {
     try {
       const response = await api.get("/api/main-page/bq-windows/" + month);
       const bqWindowData = response.data;
-      console.log(response);
-      //setDoorNames(names);
-      //setDoorType(names[0]);
-      console.log(bqWindowData);
-      //setInventoryItems(response.data);
       setCompletedBQWindows(bqWindowData);
       findBQWindowsQuantity(bqWindowData);
     } catch (err) {
@@ -139,8 +118,6 @@ const Home = () => {
     document.getElementById('root')
   );
 
-  //const [month, setMonth] = useState("");
-
   const handleMonthChange = (e) => {
     setMonth(e.target.value);
 
@@ -149,54 +126,36 @@ const Home = () => {
     getPoloDoors(e.target.value);
   };
 
-  function showBQDoorsMonthlyDetails() {
-    console.log("bq doors monthly pressed");
-  };
-
-  function showBQWindowsMonthlyDetails() {
-    console.log("bq windows monthly pressed");
-  };
-
-  function showPoloDoorsMonthlyDetails() {
-    console.log("polo doors monthly pressed");
-  };
-
   function getMonthAsString(monthNumber) {
     switch (monthNumber) {
       case 0:
-        return "Jaanuar";
+        return "January";
       case 1:
-        return "Veebruar";
+        return "February";
       case 2:
-        return "Märts";
+        return "March";
       case 3:
-        return "Aprill";
+        return "April";
       case 4:
-        return "Mai";
+        return "May";
       case 5:
-        return "Juuni";
+        return "June";
       case 6:
-        return "Juuli";
+        return "July";
       case 7:
         return "August";
       case 8:
         return "September";
       case 9:
-        return "Oktoober";
+        return "October";
       case 10:
         return "November";
       case 11:
-        return "Detsember";
+        return "December";
       default:
         throw new Error("Wrong month value proposed!");
     }
   }
-
-  const dataForModal = [
-    { id: 1, name: 'John Doe', age: 30 },
-    { id: 2, name: 'Jane Smith', age: 25 },
-    { id: 3, name: 'Bob Johnson', age: 40 }
-  ];
 
   return (
     <div className="main-container">
@@ -207,39 +166,39 @@ const Home = () => {
       <div className="content">
         <div class="dropdown">
           <select className="home-month-select" onChange={handleMonthChange} value={month}>
-            <option className="dropvalue" value="Jaanuar">Jaanuar</option>
-            <option className="dropvalue" value="Veebruar">Veebruar</option>
-            <option className="dropvalue" value="Märts">Märts</option>
-            <option className="dropvalue" value="Aprill">Aprill</option>
-            <option className="dropvalue" value="Mai">Mai</option>
-            <option className="dropvalue" value="Juuni">Juuni</option>
-            <option className="dropvalue" value="Juuli">Juuli</option>
+            <option className="dropvalue" value="January">January</option>
+            <option className="dropvalue" value="February">February</option>
+            <option className="dropvalue" value="March">March</option>
+            <option className="dropvalue" value="April">April</option>
+            <option className="dropvalue" value="May">May</option>
+            <option className="dropvalue" value="June">June</option>
+            <option className="dropvalue" value="July">July</option>
             <option className="dropvalue" value="August">August</option>
             <option className="dropvalue" value="September">September</option>
-            <option className="dropvalue" value="Oktoober">Oktoober</option>
+            <option className="dropvalue" value="October">October</option>
             <option className="dropvalue" value="November">November</option>
-            <option className="dropvalue" value="Detsember">Detsember</option>
+            <option className="dropvalue" value="December">December</option>
           </select>
         </div>
         <div class="card-container">
           <div onClick={openBQDoors} class="card">
-            <h2 class="card-title">BQ Uksed</h2>
+            <h2 class="card-title">BQ Doors</h2>
             <p class="card-content">{completedBQDoorsQuantity}</p>
           </div>
           <div onClick={openBQWindows} class="card">
-            <h2 class="card-title">BQ Aknad</h2>
+            <h2 class="card-title">BQ Windows</h2>
             <p class="card-content">{completedBQWindowsQuantity}</p>
           </div>
           <div onClick={openPoloDoors} class="card">
-            <h2 class="card-title">Polo Uksed</h2>
+            <h2 class="card-title">Polo Doors</h2>
             <p class="card-content">{completedPoloDoorsQuantity}</p>
           </div>
         </div>
       </div>
 
-      <Modal isOpen={isPoloDoorsOpen} onClose={closePoloDoors} title="Polo Uksed" data={completedPoloDoors}></Modal>
-      <Modal isOpen={isBQDoorsOpen} onClose={closeBQDoors} title="BQ Uksed" data={completedBQDoors}></Modal>
-      <Modal isOpen={isBQWindowsOpen} onClose={closeBQWindows} title="BQ Aknad" data={completedBQWindows}></Modal>
+      <Modal isOpen={isPoloDoorsOpen} onClose={closePoloDoors} title="Polo Doors" data={completedPoloDoors}></Modal>
+      <Modal isOpen={isBQDoorsOpen} onClose={closeBQDoors} title="BQ Doors" data={completedBQDoors}></Modal>
+      <Modal isOpen={isBQWindowsOpen} onClose={closeBQWindows} title="BQ Windows" data={completedBQWindows}></Modal>
 
     </div>
   );

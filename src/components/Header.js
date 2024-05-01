@@ -1,15 +1,13 @@
 import React from "react";
-import "./Header.css"; // Import CSS file for styling
-import logo from "../images/logo.jpg"; // Import your logo image
+import "./Header.css";
+import logo from "../images/logo.jpg";
 import { useState } from 'react';
 import { Link, useLocation } from "react-router-dom";
-import { signOut, getAuth } from "firebase/auth";
 
 const Header = ({ selectedItem }) => {
   const location = useLocation();
-  const pathname = location.pathname.substring(1); // Remove the leading slash
+  const pathname = location.pathname.substring(1);
   const [showMenu, setShowMenu] = useState(false);
-  const auth = getAuth();
 
   const toggleMenu = () => {
     setShowMenu(!showMenu);
@@ -31,22 +29,20 @@ const Header = ({ selectedItem }) => {
             </div>
           </div>
           <ul>
-            {/* <button onClick={() => signOut(auth)}>Sign Out</button> */}
-
             <li className={pathname === '' ? 'active' : ''}>
-              <Link className="header-link" to="/">PEALEHT</Link>
+              <Link className="header-link" to="/">MAIN PAGE</Link>
             </li>
-            <li className={pathname === 'bq-uksed' ? 'active' : ''}>
-              <Link className="header-link" to="/bq-uksed">BQ UKSED</Link>
+            <li className={pathname === 'bq-doors' ? 'active' : ''}>
+              <Link className="header-link" to="/bq-doors">BQ DOORS</Link>
             </li>
-            <li className={pathname === 'bq-aknad' ? 'active' : ''}>
-              <Link className="header-link" to="/bq-aknad">BQ AKNAD</Link>
+            <li className={pathname === 'bq-windows' ? 'active' : ''}>
+              <Link className="header-link" to="/bq-windows">BQ WINDOWS</Link>
             </li>
-            <li className={pathname === 'polo-uksed' ? 'active' : ''}>
-              <Link className="header-link" to="/polo-uksed">POLO UKSED</Link>
+            <li className={pathname === 'polo-doors' ? 'active' : ''}>
+              <Link className="header-link" to="/polo-doors">POLO DOORS</Link>
             </li>
-            <li className={pathname === 'ladu' ? 'active' : ''}>
-              <Link className="header-link" to="/ladu">LADU</Link>
+            <li className={pathname === 'inventory' ? 'active' : ''}>
+              <Link className="header-link" to="/inventory">INVENTORY</Link>
             </li>
           </ul>
         </nav>

@@ -20,12 +20,9 @@ const PoloDoors = () => {
     try {
       const response = await api.get("/api/polo-doors");
       const doorData = response.data;
-      console.log(response);
       const names = doorData.map(door => door.name);
       setDoorNames(names);
       setDoorType(names[0]);
-      console.log(doorData);
-      //setInventoryItems(response.data);
     } catch (err) {
       console.log(err);
     }
@@ -34,7 +31,6 @@ const PoloDoors = () => {
   const handleAddCompletedPoloDoors = async () => {
     try {
       const requestBody = data;
-      console.log(requestBody);
 
       const response = await api.post('/api/completed-polo-doors/add', requestBody, {
         method: 'POST',
@@ -43,16 +39,10 @@ const PoloDoors = () => {
         },
       });
 
-      console.log(response);
-
       if (!response.ok) {
         throw new Error('Failed to add door');
       }
-
-      // Handle success
-      console.log('Door added successfully');
     } catch (error) {
-      // Handle error
       console.error('Error adding door:', error.message);
     }
   };
@@ -60,29 +50,29 @@ const PoloDoors = () => {
   function getMonthAsString(monthNumber) {
     switch (monthNumber) {
       case 0:
-        return "Jaanuar";
+        return "January";
       case 1:
-        return "Veebruar";
+        return "February";
       case 2:
-        return "Märts";
+        return "March";
       case 3:
-        return "Aprill";
+        return "April";
       case 4:
-        return "Mai";
+        return "May";
       case 5:
-        return "Juuni";
+        return "June";
       case 6:
-        return "Juuli";
+        return "July";
       case 7:
         return "August";
       case 8:
         return "September";
       case 9:
-        return "Oktoober";
+        return "October";
       case 10:
         return "November";
       case 11:
-        return "Detsember";
+        return "December";
       default:
         throw new Error("Wrong month value proposed!");
     }
@@ -145,7 +135,7 @@ const PoloDoors = () => {
         <div className="polo-doors-form-content">
           <form className="polo-doors-form">
             <div className="polo-doors-form-group">
-              <label htmlFor="doorType">Valmistatud Polo Uks</label>
+              <label htmlFor="doorType">Completed Polo Door</label>
               <select className="polo-doors-type-select" id="doorType" value={doorType} onChange={handleDoorTypeChange}>
                 {doorNames.map((doorName, index) => (
                   <option key={index} value={doorName}>{doorName}</option>
@@ -153,28 +143,28 @@ const PoloDoors = () => {
               </select>
             </div>
             <div className="polo-doors-form-group">
-              <label htmlFor="quantity">Kogus</label>
+              <label htmlFor="quantity">Quantity</label>
               <input className="polo-doors-quantity-input" type="number" id="quantity" value={quantity} onChange={handleQuantityChange} />
             </div>
             <div className="polo-doors-form-group">
-              <label htmlFor="month">Kuu</label>
+              <label htmlFor="month">Month</label>
               <select className="polo-doors-month-select" id="month" value={month} onChange={handleMonthChange}>
-                <option value="Jaanuar">Jaanuar</option>
-                <option value="Veebruar">Veebruar</option>
-                <option value="Märts">Märts</option>
-                <option value="Aprill">Aprill</option>
-                <option value="Mai">Mai</option>
-                <option value="Juuni">Juuni</option>
-                <option value="Juuli">Juuli</option>
+                <option value="January">January</option>
+                <option value="February">February</option>
+                <option value="March">March</option>
+                <option value="April">April</option>
+                <option value="May">May</option>
+                <option value="June">June</option>
+                <option value="July">July</option>
                 <option value="August">August</option>
                 <option value="September">September</option>
-                <option value="Oktoober">Oktoober</option>
+                <option value="October">October</option>
                 <option value="November">November</option>
-                <option value="Detsember">Detsember</option>
+                <option value="December">December</option>
               </select>
             </div>
             <div className="polo-doors-form-group">
-              <button className="polo-doors-confirm-button" onClick={addData}>Kinnita</button>
+              <button className="polo-doors-confirm-button" onClick={addData}>Confirm</button>
             </div>
           </form>
         </div>
@@ -184,15 +174,15 @@ const PoloDoors = () => {
             <table>
               <thead>
                 <tr>
-                  <th>Valmistatud Polo Uks</th>
-                  <th>Kogus</th>
-                  <th>Kuu</th>
+                  <th>Completed Polo Door</th>
+                  <th>Quantity</th>
+                  <th>Month</th>
                 </tr>
               </thead>
               <tbody>
                 {data.length === 0 ? (
                   <tr>
-                    <td colSpan="3">Sisestage Valmistatud Uksed</td>
+                    <td colSpan="3">Insert Completed Doors</td>
                   </tr>
                 ) : (
                   data.map(item => (
@@ -205,8 +195,8 @@ const PoloDoors = () => {
               </tbody>
             </table>
             <div className="polo-doors-table-buttons-container">
-              <button className="polo-doors-table-rollback-button" onClick={rollBackButtonPressed}>Eemalda Viimane</button>
-              <button className="polo-doors-table-confirm-button" onClick={confirmButtonPressed}>Kinnita Kõik</button>
+              <button className="polo-doors-table-rollback-button" onClick={rollBackButtonPressed}>Remove Last</button>
+              <button className="polo-doors-table-confirm-button" onClick={confirmButtonPressed}>Confirm All</button>
             </div>
           </div>
         </div>

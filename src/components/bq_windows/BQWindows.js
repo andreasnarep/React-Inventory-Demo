@@ -19,29 +19,29 @@ const BQWindows = () => {
   function getMonthAsString(monthNumber) {
     switch (monthNumber) {
       case 0:
-        return "Jaanuar";
+        return "January";
       case 1:
-        return "Veebruar";
+        return "February";
       case 2:
-        return "Märts";
+        return "March";
       case 3:
-        return "Aprill";
+        return "April";
       case 4:
-        return "Mai";
+        return "May";
       case 5:
-        return "Juuni";
+        return "June";
       case 6:
-        return "Juuli";
+        return "July";
       case 7:
         return "August";
       case 8:
         return "September";
       case 9:
-        return "Oktoober";
+        return "October";
       case 10:
         return "November";
       case 11:
-        return "Detsember";
+        return "December";
       default:
         throw new Error("Wrong month value proposed!");
     }
@@ -51,12 +51,9 @@ const BQWindows = () => {
     try {
       const response = await api.get("/api/bq-windows");
       const windowData = response.data;
-      console.log(response);
       const names = windowData.map(window => window.name);
       setWindowNames(names);
       setWindowType(names[0]);
-      console.log(windowData);
-      //setInventoryItems(response.data);
     } catch (err) {
       console.log(err);
     }
@@ -65,7 +62,6 @@ const BQWindows = () => {
   const handleAddCompletedBQWindows = async () => {
     try {
       const requestBody = data;
-      console.log(requestBody);
 
       const response = await api.post('/api/completed-bq-windows/add', requestBody, {
         method: 'POST',
@@ -74,16 +70,10 @@ const BQWindows = () => {
         },
       });
 
-      console.log(response);
-
       if (!response.ok) {
         throw new Error('Failed to add window');
       }
-
-      // Handle success
-      console.log('Window added successfully');
     } catch (error) {
-      // Handle error
       console.error('Error adding window:', error.message);
     }
   };
@@ -128,7 +118,6 @@ const BQWindows = () => {
     if (e.target.value < 0) {
       return;
     }
-    console.log(e);
     setQuantity(e.target.value);
   };
 
@@ -145,7 +134,7 @@ const BQWindows = () => {
         <div className="form-content">
           <form className="form">
             <div className="form-group">
-              <label htmlFor="windowType">Valmistatud BQ Aken</label>
+              <label htmlFor="windowType">Completed BQ Window</label>
               <select className="bq-windows-type-select" id="windowType" value={windowType} onChange={handlewindowTypeChange}>
                 {windowNames.map((windowName, index) => (
                   <option key={index} value={windowName}>{windowName}</option>
@@ -153,28 +142,28 @@ const BQWindows = () => {
               </select>
             </div>
             <div className="form-group">
-              <label htmlFor="quantity">Kogus</label>
+              <label htmlFor="quantity">Quantity</label>
               <input className="bq-windows-quantity-input" type="number" id="quantity" value={quantity} onChange={handleQuantityChange} />
             </div>
             <div className="form-group">
-              <label htmlFor="month">Kuu</label>
+              <label htmlFor="month">Month</label>
               <select className="bq-windows-month-select" id="month" value={month} onChange={handleMonthChange}>
-               <option value="Jaanuar">Jaanuar</option>
-                <option value="Veebruar">Veebruar</option>
-                <option value="Märts">Märts</option>
-                <option value="Aprill">Aprill</option>
-                <option value="Mai">Mai</option>
-                <option value="Juuni">Juuni</option>
-                <option value="Juuli">Juuli</option>
+                <option value="January">January</option>
+                <option value="February">February</option>
+                <option value="March">March</option>
+                <option value="April">April</option>
+                <option value="May">May</option>
+                <option value="June">June</option>
+                <option value="July">July</option>
                 <option value="August">August</option>
                 <option value="September">September</option>
-                <option value="Oktoober">Oktoober</option>
+                <option value="October">October</option>
                 <option value="November">November</option>
-                <option value="Detsember">Detsember</option>
+                <option value="December">December</option>
               </select>
             </div>
             <div className="form-group">
-              <button className="bq-windows-confirm-button" onClick={addData}>Kinnita</button>
+              <button className="bq-windows-confirm-button" onClick={addData}>Confirm</button>
             </div>
           </form>
         </div>
@@ -184,15 +173,15 @@ const BQWindows = () => {
             <table>
               <thead>
                 <tr>
-                  <th>Valmistatud BQ Aken</th>
-                  <th>Kogus</th>
-                  <th>Kuu</th>
+                  <th>Completed BQ Window</th>
+                  <th>Quantity</th>
+                  <th>Month</th>
                 </tr>
               </thead>
               <tbody>
                 {data.length === 0 ? (
                   <tr>
-                    <td colSpan="3">Sisestage Valmistatud Aknad</td>
+                    <td colSpan="3">Insert Completed Windows</td>
                   </tr>
                 ) : (
                   data.map(item => (
@@ -205,8 +194,8 @@ const BQWindows = () => {
               </tbody>
             </table>
             <div className="bq-windows-table-buttons-container">
-              <button className="bq-windows-table-rollback-button" onClick={rollBackButtonPressed}>Eemalda Viimane</button>
-              <button className="bq-windows-table-confirm-button" onClick={confirmButtonPressed}>Kinnita Kõik</button>
+              <button className="bq-windows-table-rollback-button" onClick={rollBackButtonPressed}>Remove Last</button>
+              <button className="bq-windows-table-confirm-button" onClick={confirmButtonPressed}>Confirm All</button>
             </div>
           </div>
         </div>

@@ -15,13 +15,7 @@ const Inventory = () => {
   const getInventory = async () => {
     try {
       const response = await api.get("/api/inventory");
-      const inventoryData = response.data;
-      console.log(response);
-      //setDoorNames(names);
-      //setDoorType(names[0]);
-      console.log(inventoryData);
       setData(response.data);
-      //return inventoryData;
     } catch (err) {
       console.log(err);
     }
@@ -33,9 +27,7 @@ const Inventory = () => {
   const [clickedItem, setClickedItem] = useState(null);
 
   const rowItemClicked = (item) => {
-    // Set the clicked item
     setClickedItem(item);
-    // Show the popup
     setShowPopup(true);
   }
 
@@ -46,19 +38,19 @@ const Inventory = () => {
       <div className="inventory-content">
         <div className="inventory-table-container">
           <div className="inventory-table-content">
-            <h4 className="inventory-table-label">Inventuur</h4>
+            <h4 className="inventory-table-label">Inventory</h4>
             <div className="inventory-table-test">
               <table>
                 <thead>
                   <tr>
-                    <th>Nimi</th>
-                    <th>Kogus</th>
+                    <th>Name</th>
+                    <th>Quantity</th>
                   </tr>
                 </thead>
                 <tbody>
                   {data.length === 0 ? (
                     <tr>
-                      <td colSpan="2">Inventuur On Tühi</td>
+                      <td colSpan="2">No Items In Inventory</td>
                     </tr>
                   ) : (
                     data.map(item => (

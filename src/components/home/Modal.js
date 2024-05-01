@@ -30,9 +30,9 @@ const Modal = ({ isOpen, onClose, children, title, data }) => {
               <table>
                 <thead>
                   <tr>
-                    <th className="home-modal-th">Nimi</th>
-                    <th className="home-modal-th">Kogus</th>
-                    <th className="home-modal-th">Kuu</th>
+                    <th className="home-modal-th">Name</th>
+                    <th className="home-modal-th">Quantity</th>
+                    <th className="home-modal-th">Month</th>
                   </tr>
                 </thead>
                 <tbody>
