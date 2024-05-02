@@ -1,9 +1,6 @@
 import React from "react";
-import ReactDOM from "react-dom";
 import "./Home.css"; // Import CSS file for styling
-import logo from "../../images/logo.jpg"; // Import your logo image
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 import Modal from "./Modal";
 import Header from "../Header";
 import api from '../../api/axiosConfig';
@@ -22,6 +19,7 @@ const Home = () => {
     getBQDoors(currentMonth);
     getBQWindows(currentMonth);
     getPoloDoors(currentMonth);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   function findBQWindowsQuantity(completedBQWindows) {
@@ -113,10 +111,6 @@ const Home = () => {
   const [isBQWindowsOpen, setIsBQWindowsOpen] = useState(false);
   const openBQWindows = () => setIsBQWindowsOpen(true);
   const closeBQWindows = () => setIsBQWindowsOpen(false);
-
-  const root = ReactDOM.createRoot(
-    document.getElementById('root')
-  );
 
   const handleMonthChange = (e) => {
     setMonth(e.target.value);

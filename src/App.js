@@ -1,7 +1,4 @@
 import './App.css';
-import api from './api/axiosConfig';
-import { useState, useEffect } from 'react';
-import Layout from './components/Layout';
 import { Routes, Route } from 'react-router-dom';
 import Home from './components/home/Home';
 import BQDoors from './components/bq_doors/BQDoors';

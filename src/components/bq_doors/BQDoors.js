@@ -86,7 +86,7 @@ const BQDoors = () => {
       return setQuantity(1);
     }
 
-    if (parseInt(quantity) == 0) {
+    if (parseInt(quantity) === 0) {
       return setQuantity(1);
     }
 
