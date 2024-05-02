@@ -70,8 +70,8 @@ const BQWindows = () => {
         },
       });
 
-      if (!response.ok) {
-        throw new Error('Failed to add window');
+      if (response.status !== 200) {
+        throw new Error('Failed to change quantity, error code:', response.status);
       }
     } catch (error) {
       console.error('Error adding window:', error.message);

@@ -36,10 +36,9 @@ const Popup = ({ clickedItem, isOpen, onClose }) => {
           'Content-Type': 'application/json',
         },
       });
-      
-      
-      if (!response.ok) {
-        throw new Error('Failed to change quantity');
+
+      if (response.status !== 200) {
+        throw new Error('Failed to change quantity, error code:', response.status);
       }
     } catch (error) {
       console.error('Error changing quantity:', error.message);

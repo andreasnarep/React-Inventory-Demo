@@ -39,8 +39,8 @@ const PoloDoors = () => {
         },
       });
 
-      if (!response.ok) {
-        throw new Error('Failed to add door');
+      if (response.status !== 200) {
+        throw new Error('Failed to change quantity, error code:', response.status);
       }
     } catch (error) {
       console.error('Error adding door:', error.message);
@@ -123,7 +123,7 @@ const PoloDoors = () => {
     if (e.target.value < 0) {
       return;
     }
-    console.log(e);
+    
     setQuantity(e.target.value);
   };
 

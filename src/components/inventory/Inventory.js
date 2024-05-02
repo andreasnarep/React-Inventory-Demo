@@ -16,6 +16,10 @@ const Inventory = () => {
     try {
       const response = await api.get("/api/inventory");
       setData(response.data);
+
+      if (response.status !== 200) {
+        throw new Error('Failed to query inventory items, error code:', response.status);
+      }
     } catch (err) {
       console.log(err);
     }
