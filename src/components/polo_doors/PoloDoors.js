@@ -89,6 +89,11 @@ const PoloDoors = () => {
       return setQuantity(1);
     }
 
+    if (doorType.trim().length === 0) {
+      alert("Door type can't be empty!");
+      return;
+    }
+
     const newData = { name: doorType, quantity: quantity, month: month };
     setData([...data, newData]);
 

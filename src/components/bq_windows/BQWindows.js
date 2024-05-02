@@ -89,6 +89,11 @@ const BQWindows = () => {
       return setQuantity(1);
     }
 
+    if (windowType.trim().length === 0) {
+      alert("Window type can't be empty!");
+      return;
+    }
+
     const newData = { name: windowType, quantity: quantity, month: month };
     setData([...data, newData]);
 
