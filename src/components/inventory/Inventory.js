@@ -16,7 +16,6 @@ const Inventory = () => {
     try {
       const response = await api.get("/api/inventory");
       setData(response.data);
-      console.log(response.data);
     } catch (err) {
       console.log(err);
     }
@@ -26,8 +25,6 @@ const Inventory = () => {
 
   const closePopup = () => {
     setShowPopup(false);
-    getInventory();
-    window.location.reload();
   }
 
   const [clickedItem, setClickedItem] = useState(null);

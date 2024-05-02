@@ -28,13 +28,16 @@ const Popup = ({ clickedItem, isOpen, onClose }) => {
         }
       ];
 
+      clickedItem.quantity = parseInt(quantity);
+      
       const response = await api.post('/api/inventory/change-quantity', requestBody, {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
         },
       });
-
+      
+      
       if (!response.ok) {
         throw new Error('Failed to change quantity');
       }
