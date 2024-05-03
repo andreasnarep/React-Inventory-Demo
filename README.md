@@ -6,6 +6,8 @@
 
 React web application with a REST backend Java API (github repo [link](https://github.com/andreasnarep/Inventory-API-Demo) for API). MongoDB is used for database. The React application is deployed in Firebase and the Java API in Google Cloud App Engine.
 
+This is a follow-up project to the original Inventory Management project ([link](https://github.com/andreasnarep/Inventory-Management)).
+
 ## Website Overview
   **Main Page**  - Overview of completed doors/windows for every month. 
   
