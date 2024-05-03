@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import Modal from "./Modal";
 import Header from "../Header";
 import api from '../../api/axiosConfig';
+import LoadingMessage from "./LoadingMessage";
 
 const Home = () => {
   const currentMonth = getMonthAsString(new Date().getMonth());
@@ -14,11 +15,18 @@ const Home = () => {
   const [completedBQWindowsQuantity, setCompletedBQWindowsQuantity] = useState(0);
   const [completedBQDoorsQuantity, setCompletedBQDoorsQuantity] = useState(0);
   const [completedPoloDoorsQuantity, setCompletedPoloDoorsQuantity] = useState(0);
+  const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
-    getBQDoors(currentMonth);
-    getBQWindows(currentMonth);
-    getPoloDoors(currentMonth);
+    const fetchData = async () => {
+      setIsLoading(true);
+      await getBQDoors(currentMonth);
+      await getBQWindows(currentMonth);
+      await getPoloDoors(currentMonth);
+      setIsLoading(false);
+    };
+
+    fetchData();
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -153,6 +161,7 @@ const Home = () => {
 
   return (
     <div className="main-container">
+      {isLoading && <LoadingMessage />}
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
       </head>
