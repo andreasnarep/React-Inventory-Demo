@@ -162,9 +162,6 @@ const Home = () => {
   return (
     <div className="main-container">
       {isLoading && <LoadingMessage />}
-      <head>
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-      </head>
       <Header></Header>
       <div className="content">
         <div class="dropdown">
